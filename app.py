@@ -16,7 +16,7 @@ client = OpenAI(
 # Gmail API 설정
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 creds = None
-credentials_info = json.loads(st.secrets["gcp_service_account"])
+credentials_info = st.secrets["gcp_service_account"]
 
 # Gmail API 인증
 if os.path.exists('token.json'):
