@@ -17,19 +17,9 @@ client = OpenAI(
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 creds = None
 credentials_info = st.secrets["gcp_service_account"]
-
-# Gmail API 인증
-if os.path.exists('token.json'):
-    creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-if not creds or not creds.valid:
-    if creds and creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-    else:
-        flow = InstalledAppFlow.from_client_secrets_file(
-            credentials_info, SCOPES)
-        creds = flow.run_local_server(port=0)
-    with open('token.json', 'w') as token:
-        token.write(creds.to_json())
+flow = InstalledAppFlow.from_client_secrets_file(
+    credentials_info, SCOPES)
+creds = flow.run_local_server(port=0)
 
 service = build('gmail', 'v1', credentials=creds)
 # Streamlit 페이지 구성
