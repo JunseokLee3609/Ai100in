@@ -9,6 +9,12 @@ charset-normalizer==3.3.2
 click==8.1.7
 distro==1.9.0
 exceptiongroup==1.2.1
+google-api-core==2.19.0
+google-api-python-client==2.133.0
+google-auth==2.30.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.0
+googleapis-common-protos==1.63.1
 gitdb==4.0.11
 GitPython==3.1.43
 h11==0.14.0
